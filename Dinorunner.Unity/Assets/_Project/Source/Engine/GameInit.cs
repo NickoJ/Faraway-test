@@ -1,4 +1,5 @@
 using Cysharp.Threading.Tasks;
+using NickoJ.DinoRunner.Core;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
@@ -9,14 +10,14 @@ namespace NickoJ.DinoRunner.Engine
 {
     internal static class GameInit
     {
-        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSplashScreen)]
-        private static void PreInitialize()
-        {
-        }
-
-        [RuntimeInitializeOnLoadMethod]
+        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
         private static async void Initialize()
         {
+            var gameLoop = new GameLoop();
+            PlayerLoopHelper.AddAction(PlayerLoopTiming.Update, gameLoop );
+
+            var game = new Game(gameLoop);
+            
             if (SceneManager.sceneCount != 1 || SceneManager.GetActiveScene().buildIndex != 0)
             {
                 return;

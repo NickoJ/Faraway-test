@@ -9,7 +9,6 @@ namespace NickoJ.DinoRunner.Scripts.Dino
 
         private void LateUpdate()
         {
-            UnityEngine.Debug.Log("MEOW");
             float dist = Vector2.Distance(transform.position, target.position);
             float scale = downscaleCurve.Evaluate(dist);
             transform.localScale = new Vector3(scale, scale, scale);
