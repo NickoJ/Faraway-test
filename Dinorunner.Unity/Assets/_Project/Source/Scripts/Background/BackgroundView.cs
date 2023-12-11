@@ -7,8 +7,8 @@ namespace NickoJ.DinoRunner.Scripts.Background
         private const float MaxAwakeOffsetDistance = 300f; 
         
         [SerializeField] private BackgroundLayer[] layers;
-        
-        public float MoveSpeed { get; set; } = 1f;
+
+        public float MoveSpeed { get; set; } = 0f;
 
         private void Awake()
         {

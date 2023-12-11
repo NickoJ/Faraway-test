@@ -16,13 +16,13 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 22100000, guid: d10e38716139787479b52226dace6fac, type: 2}
-    - target: {fileID: 6657252241391013940, guid: 1fe29472486cf034b87599abf7209751, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 8.32
+    - target: {fileID: 6436071211575358285, guid: 1fe29472486cf034b87599abf7209751, type: 3}
+      propertyPath: kind
+      value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 6657252241391013940, guid: 1fe29472486cf034b87599abf7209751, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.51
+    - target: {fileID: 6436071211575358285, guid: 1fe29472486cf034b87599abf7209751, type: 3}
+      propertyPath: <Kind>k__BackingField
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6657252241391013940, guid: 1fe29472486cf034b87599abf7209751, type: 3}
       propertyPath: m_LocalPosition.z
@@ -59,7 +59,7 @@ PrefabInstance:
     - target: {fileID: 7810044773240422580, guid: 1fe29472486cf034b87599abf7209751, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -2008116914, guid: f5c14b04f18fe4d448776d5741c0cfdb, type: 3}
+      objectReference: {fileID: -363860762, guid: 97a273ef6e3cba943b91f6839dcb173e, type: 3}
     - target: {fileID: 7810044773240422580, guid: 1fe29472486cf034b87599abf7209751, type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1

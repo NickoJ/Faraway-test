@@ -16,13 +16,13 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 22100000, guid: 1f39d9449a8ac5241a879f75adb3e488, type: 2}
-    - target: {fileID: 6657252241391013940, guid: 1fe29472486cf034b87599abf7209751, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 8.32
+    - target: {fileID: 6436071211575358285, guid: 1fe29472486cf034b87599abf7209751, type: 3}
+      propertyPath: kind
+      value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 6657252241391013940, guid: 1fe29472486cf034b87599abf7209751, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.51
+    - target: {fileID: 6436071211575358285, guid: 1fe29472486cf034b87599abf7209751, type: 3}
+      propertyPath: <Kind>k__BackingField
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6657252241391013940, guid: 1fe29472486cf034b87599abf7209751, type: 3}
       propertyPath: m_LocalPosition.z

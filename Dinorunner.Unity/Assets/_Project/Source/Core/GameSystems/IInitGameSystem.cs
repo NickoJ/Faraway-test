@@ -1,6 +1,6 @@
 ﻿namespace NickoJ.DinoRunner.Core.GameSystems
 {
-    public interface IInitGameSystem
+    internal interface IInitGameSystem
     {
         void Init();
     }

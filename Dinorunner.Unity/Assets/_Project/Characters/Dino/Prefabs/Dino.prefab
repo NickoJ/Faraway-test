@@ -43,6 +43,9 @@ GameObject:
   m_Component:
   - component: {fileID: 7676728214745100932}
   - component: {fileID: 5589236417093014623}
+  - component: {fileID: 2396978289461092187}
+  - component: {fileID: 8446694516522596574}
+  - component: {fileID: 4994881084208215773}
   m_Layer: 0
   m_Name: Dino
   m_TagString: Untagged
@@ -87,6 +90,47 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &2396978289461092187
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2578027480921885381}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5511a1c6f6267440bf7591a208c23c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  root: {fileID: 2160688345373797337}
+  animator: {fileID: 8446694516522596574}
+--- !u!114 &8446694516522596574
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2578027480921885381}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e97f4789f6df419b81472375ea1d5fc9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 5589236417093014623}
+  maxWalkSpeed: 10
+--- !u!114 &4994881084208215773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2578027480921885381}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c388d250e9ed416a9eb2da9a33f88949, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dinoView: {fileID: 2396978289461092187}
 --- !u!1 &3894872465296027361
 GameObject:
   m_ObjectHideFlags: 0

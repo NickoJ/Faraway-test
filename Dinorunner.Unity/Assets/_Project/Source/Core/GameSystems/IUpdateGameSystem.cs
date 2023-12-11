@@ -1,6 +1,6 @@
 ﻿namespace NickoJ.DinoRunner.Core.GameSystems
 {
-    public interface IUpdateGameSystem
+    internal interface IUpdateGameSystem
     {
         void Update(float dt);
     }

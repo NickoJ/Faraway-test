@@ -1,15 +1,19 @@
 ﻿namespace NickoJ.DinoRunner.Core.GameSystems
 {
-    public abstract class GameSystem
+    internal abstract class GameSystem : IGameSystem
     {
+        private readonly ILogger _logger;
         private readonly IInitGameSystem _init;
         private readonly IUpdateGameSystem _update;
         private readonly IFinishGameSystem _finish;
 
-        private GameSystemState _state = GameSystemState.NotInitialized;
+        private GameSystemState _state;
         
-        protected GameSystem()
+        protected GameSystem(bool started, ILogger logger = null)
         {
+            _state = started ? GameSystemState.NotInitialized : GameSystemState.Finished;
+            _logger = logger;
+
             _init = this as IInitGameSystem;
             _update = this as IUpdateGameSystem;
             _finish = this as IFinishGameSystem;
@@ -31,7 +35,7 @@
             }
         }
 
-        public virtual void Tick(float dt)
+        public void Tick(float dt)
         {
             if (_state == GameSystemState.NotInitialized)
             {
@@ -56,6 +60,11 @@
                 _finish?.Finish();
                 _state = GameSystemState.Finished;
             }
+        }
+
+        protected void Log(string message)
+        {
+            _logger.Log(message);
         }
     }
 }

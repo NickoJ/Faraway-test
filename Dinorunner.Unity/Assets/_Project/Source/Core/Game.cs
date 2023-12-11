@@ -1,25 +1,78 @@
 ﻿using System;
+using NickoJ.DinoRunner.Core.Config;
+using NickoJ.DinoRunner.Core.GameSystems;
+using NickoJ.DinoRunner.Core.GameSystems.Bonuses;
+using NickoJ.DinoRunner.Core.GameSystems.Gravity;
+using NickoJ.DinoRunner.Core.GameSystems.Items;
+using NickoJ.DinoRunner.Core.GameSystems.PlayerMovement;
+using NickoJ.DinoRunner.Core.GameSystems.Score;
 using NickoJ.DinoRunner.Core.Model;
+using NickoJ.DinoRunner.Core.Model.Bonuses;
 
 namespace NickoJ.DinoRunner.Core
 {
-    public sealed class Game : IDisposable
+    public sealed class Game : IGame, IDisposable
     {
         private readonly IGameLoop _gameLoop;
 
-        public Game(IGameLoop gameLoop)
+        private readonly GameSystem[] _gameSystems;
+
+        private GameState _state;
+
+        public IGameState State => _state;
+
+        public Game(IGameLoop gameLoop, ILogger logger, IGameConfig gameConfig)
         {
             _gameLoop = gameLoop ?? throw new ArgumentNullException(nameof(gameLoop));
 
-            var gameState = new GameState();
-            var player = new Player();
+            _state = new GameState
+            (
+                new Player(gameConfig.Player), 
+                new GameScore(),
+                new GameField(gameConfig.GameField)
+            );
 
+            _gameSystems = new GameSystem[]
+            {
+                new BonusSystem(new BonusStorage(_state.Player, gameConfig.Bonuses)),
+                new GravitySystem(_state.Player, gameConfig.Gravity),
+                new RunSystem(_state, gameConfig.Run),
+                new ValidateSpeedSystem(_state),
+                new BonusItemGenerateSystem(_state, gameConfig.BonusGeneratorConfig, logger),
+                new BonusItemsMoveSystem(_state, logger),
+                new BonusItemRemoveSystem(_state, logger),
+                new CalculateScoreSystem(_state)
+            };
+            
             _gameLoop.OnTick += Tick;
+        }
+
+        public void Start()
+        {
+            if (_state.Started) return;
+
+            _state.Started = true;
+        }
+
+        public T GetSystem<T>() where T : class, IGameSystem
+        {
+            foreach (GameSystem system in _gameSystems)
+            {
+                if (system is T casted)
+                {
+                    return casted;
+                }
+            }
+
+            return null;
         }
 
         private void Tick(float dt)
         {
-            throw new NotImplementedException();
+            foreach (GameSystem system in _gameSystems)
+            {
+                system.Tick(dt);
+            }
         }
 
         public void Dispose()
