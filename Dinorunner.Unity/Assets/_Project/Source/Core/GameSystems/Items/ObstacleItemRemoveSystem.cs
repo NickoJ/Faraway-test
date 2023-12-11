@@ -3,7 +3,7 @@ using NickoJ.DinoRunner.Core.Model;
 
 namespace NickoJ.DinoRunner.Core.GameSystems.Items
 {
-    internal sealed class ObstacleItemRemoveSystem: GameSystem, IUpdateGameSystem, IFinishGameSystem
+    internal sealed class ObstacleItemRemoveSystem: GameSystem, IUpdateGameSystem
     {
         private readonly GameState _state;
 
@@ -27,17 +27,6 @@ namespace NickoJ.DinoRunner.Core.GameSystems.Items
                 {
                     field.RemoveObstacleByIndex(i);
                 }
-            }
-        }
-
-        void IFinishGameSystem.Finish()
-        {
-            GameField field = _state.GameField;
-            int count = field.OnFieldBonusCount;
-
-            for (int i = count - 1; i >= 0; --i)
-            {
-                field.RemoveObstacleByIndex(i);
             }
         }
 

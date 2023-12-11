@@ -14,10 +14,12 @@ namespace NickoJ.DinoRunner.Engine.Configs
         [SerializeField] private GameFieldConfig gameField;
         [SerializeField] private BonusGeneratorConfig bonusGeneratorConfig;
         [SerializeField] private ObstacleGeneratorConfig obstacleGeneratorConfig;
+        [SerializeField] private ObstacleConfig obstacle;
 
         IBonusesConfig IGameConfig.Bonuses => bonuses;
         IRunConfig IGameConfig.Run => run;
         IPlayerConfig IGameConfig.Player => player;
+        IObstacleConfig IGameConfig.Obstacle => obstacle;
         IGravityConfig IGameConfig.Gravity => gravity;
         IGameFieldConfig IGameConfig.GameField => gameField;
         IBonusGeneratorConfig IGameConfig.BonusGeneratorConfig => bonusGeneratorConfig;
@@ -25,11 +27,10 @@ namespace NickoJ.DinoRunner.Engine.Configs
     }
 
     [Serializable]
-    internal sealed class ObstacleGeneratorConfig : IObstacleGeneratorConfig
+    internal sealed class ObstacleConfig : IObstacleConfig
     {
-        [field: SerializeField] public float SpawnIntervalMin { get; private set; } = 1f;
-        [field: SerializeField] public float SpawnIntervalMax { get; private set; } = 20f;
-
-        [field: SerializeField] public float SpawnDistance { get; private set; } = 30f;
+        [field: SerializeField] public float MinY { get; private set; } = 0f;
+        [field: SerializeField] public float MaxY { get; private set; } = 0.5f;
+        [field: SerializeField] public float Width { get; private set; } = 0.7f;
     }
 }

@@ -5,6 +5,7 @@
         IBonusesConfig Bonuses { get; }
         IRunConfig Run { get; }
         IPlayerConfig Player { get; }
+        IObstacleConfig Obstacle { get; }
         IGravityConfig Gravity { get; }
         IGameFieldConfig GameField { get; }
         IBonusGeneratorConfig BonusGeneratorConfig { get; }

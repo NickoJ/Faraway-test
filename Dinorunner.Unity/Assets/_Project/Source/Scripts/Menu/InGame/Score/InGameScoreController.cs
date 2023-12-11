@@ -1,5 +1,4 @@
-﻿using System.Threading;
-using Cysharp.Threading.Tasks;
+﻿using Cysharp.Threading.Tasks;
 using Cysharp.Threading.Tasks.Linq;
 using NickoJ.DinoRunner.Core.GameSystems.Score;
 using NickoJ.DinoRunner.Core.Model;
@@ -11,8 +10,6 @@ namespace NickoJ.DinoRunner.Scripts.Menu.InGame.Score
         private readonly IInGameScoreView _view;
         private readonly IGameState _state;
 
-        private CancellationTokenSource _cancellation;
-        
         public InGameScoreController(IInGameScoreView view, IGameState state)
         {
             _view = view;
@@ -23,21 +20,14 @@ namespace NickoJ.DinoRunner.Scripts.Menu.InGame.Score
 
         private async void GameStartedHandler(bool started)
         {
-            if (started)
-            {
-                _cancellation = new CancellationTokenSource();
+            if (!started) return;
 
-                GameScore score = _state.Score;
+            GameScore score = _state.Score;
                 
-                await foreach (AsyncUnit _ in UniTaskAsyncEnumerable.EveryUpdate(PlayerLoopTiming.PreLateUpdate).WithCancellation(_cancellation.Token))
-                {
-                    _view.UpdateScore(score.LastScore, score.LastScore > score.HighScore && score.HighScore > 0);
-                }
-            }
-            else if (_cancellation != null)
+            await foreach (AsyncUnit _ in UniTaskAsyncEnumerable.EveryUpdate(PlayerLoopTiming.PreLateUpdate)
+                               .TakeWhile(_ => _state.Started))
             {
-                _cancellation.Cancel();
-                _cancellation.Dispose();
+                _view.UpdateScore(score.LastScore, score.LastScore > score.HighScore && score.HighScore > 0);
             }
         }
     }

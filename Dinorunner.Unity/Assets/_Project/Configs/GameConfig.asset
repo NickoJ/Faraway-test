@@ -53,3 +53,7 @@ MonoBehaviour:
     <SpawnIntervalMin>k__BackingField: 1
     <SpawnIntervalMax>k__BackingField: 20
     <SpawnDistance>k__BackingField: 30
+  obstacle:
+    <MinY>k__BackingField: 0
+    <MaxY>k__BackingField: 0.5
+    <Width>k__BackingField: 0.7

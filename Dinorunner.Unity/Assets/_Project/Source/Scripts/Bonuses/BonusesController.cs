@@ -15,8 +15,6 @@ namespace NickoJ.DinoRunner.Scripts.Bonuses
 
         private readonly Dictionary<uint, IBonusItemView> _viewById = new();
 
-        private CancellationTokenSource _cancellation;
-
         public BonusesController(IGameState state, IBonusViewsStorage storage)
         {
             _state = state ?? throw new ArgumentNullException(nameof(state));
@@ -48,20 +46,12 @@ namespace NickoJ.DinoRunner.Scripts.Bonuses
 
         private async void GameStartedHandler(bool started)
         {
-            if (started)
-            {
-                _cancellation = new CancellationTokenSource();
+            if (!started) return;
 
-                await foreach (AsyncUnit _ in UniTaskAsyncEnumerable.EveryUpdate(PlayerLoopTiming.PreLateUpdate)
-                                   .WithCancellation(_cancellation.Token))
-                {
-                    UpdateViewsPositions();
-                }
-            }
-            else if (_cancellation != null)
+            await foreach (AsyncUnit _ in UniTaskAsyncEnumerable.EveryUpdate(PlayerLoopTiming.PreLateUpdate)
+                               .TakeWhile(_ => _state.Started))
             {
-                _cancellation.Cancel();
-                _cancellation.Dispose();
+                UpdateViewsPositions();
             }
         }
 

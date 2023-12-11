@@ -36,6 +36,7 @@ namespace NickoJ.DinoRunner.Core
             
             _gameSystems = new GameSystem[]
             {
+                new CheckDeathSystem(_state, logger),
                 bonusSystem,
                 new GravitySystem(_state.Player, gameConfig.Gravity),
                 new RunSystem(_state, gameConfig.Run),
@@ -47,6 +48,7 @@ namespace NickoJ.DinoRunner.Core
                 new BonusItemRemoveSystem(_state, logger),
                 new ObstacleItemGenerateSystem(_state, gameConfig.ObstacleGeneratorConfig, logger),
                 new ObstacleItemsMoveSystem(_state, logger),
+                new ObstacleItemCollisionSystem(_state, gameConfig.Player, gameConfig.Obstacle, logger),
                 new ObstacleItemRemoveSystem(_state, logger),
                 new CalculateScoreSystem(_state)
             };

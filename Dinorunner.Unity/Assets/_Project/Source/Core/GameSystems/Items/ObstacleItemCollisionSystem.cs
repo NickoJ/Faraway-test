@@ -1,6 +1,5 @@
 ﻿using System;
 using NickoJ.DinoRunner.Core.Config;
-using NickoJ.DinoRunner.Core.GameSystems.Bonuses;
 using NickoJ.DinoRunner.Core.Model;
 
 namespace NickoJ.DinoRunner.Core.GameSystems.Items
@@ -28,6 +27,8 @@ namespace NickoJ.DinoRunner.Core.GameSystems.Items
 
         void IUpdateGameSystem.Update(float dt)
         {
+            if (_state.Player.IsFlying) return;
+            
             float pw = _playerConfig.Width;
             float ph = _playerConfig.Height;
 
@@ -36,21 +37,21 @@ namespace NickoJ.DinoRunner.Core.GameSystems.Items
             float pyMin = _state.Player.Y;
             float pyMax = pyMin + ph;
 
-            int bonusCount = _state.GameField.OnFieldBonusCount;
+            int obstacleCount = _state.GameField.OnFieldObstacleCount;
 
             float byMin = _obstacleConfig.MinY;
             float byMax = _obstacleConfig.MaxY;
             
-            for (int i = 0; i < bonusCount; ++i)
+            for (int i = 0; i < obstacleCount; ++i)
             {
-                BonusItem bonus = _state.GameField.GetBonusByIndex(i);
+                ObstacleItem obstacle = _state.GameField.GetObstacleByIndex(i);
 
-                float bxMin = bonus.Pos - _obstacleConfig.Width / 2f;
+                float bxMin = obstacle.Pos - _obstacleConfig.Width / 2f;
                 float bxMax = bxMin + _obstacleConfig.Width;
 
                 if (bxMin < pxMax && bxMax > pxMin && pyMin < byMax && pyMax > byMin)
                 {
-                    _state.GameField.RemoveBonusByIndex(i);
+                    _state.GameField.RemoveObstacleByIndex(i);
                     _state.Player.IsDead = true;
                 }
             }

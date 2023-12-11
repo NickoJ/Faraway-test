@@ -15,8 +15,6 @@ namespace NickoJ.DinoRunner.Scripts.Obstacles
 
         private readonly Dictionary<uint, IObstacleItemView> _viewById = new();
 
-        private CancellationTokenSource _cancellation;
-
         public ObstaclesController(IGameState state, IObstacleViewsStorage storage)
         {
             _state = state ?? throw new ArgumentNullException(nameof(state));
@@ -48,20 +46,12 @@ namespace NickoJ.DinoRunner.Scripts.Obstacles
 
         private async void GameStartedHandler(bool started)
         {
-            if (started)
-            {
-                _cancellation = new CancellationTokenSource();
+            if (!started) return;
 
-                await foreach (AsyncUnit _ in UniTaskAsyncEnumerable.EveryUpdate(PlayerLoopTiming.PreLateUpdate)
-                                   .WithCancellation(_cancellation.Token))
-                {
-                    UpdateViewsPositions();
-                }
-            }
-            else if (_cancellation != null)
+            await foreach (AsyncUnit _ in UniTaskAsyncEnumerable.EveryUpdate(PlayerLoopTiming.PreLateUpdate)
+                               .TakeWhile(_ => _state.Started))
             {
-                _cancellation.Cancel();
-                _cancellation.Dispose();
+                UpdateViewsPositions();
             }
         }
 

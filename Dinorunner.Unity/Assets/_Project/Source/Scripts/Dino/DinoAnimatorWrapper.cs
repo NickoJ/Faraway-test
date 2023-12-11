@@ -68,6 +68,7 @@ namespace NickoJ.DinoRunner.Scripts.Dino
             animator.SetTrigger(trigger);
 
             _state = state;
+            Debug.Log(_state);
         }
     }
 }

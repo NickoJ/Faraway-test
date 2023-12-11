@@ -1,6 +1,9 @@
 ﻿namespace NickoJ.DinoRunner.Core.Config
 {
-    internal interface IObstacleConfig
+    public interface IObstacleConfig
     {
+        float MinY { get; }
+        float MaxY { get; }
+        float Width { get; }
     }
 }

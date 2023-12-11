@@ -8,6 +8,7 @@ namespace NickoJ.DinoRunner.Core.Model
         private readonly IPlayerConfig _config;
         private readonly float _minSpeed;
 
+        private bool _canStop = true;
         private float _baseSpeed = 0f;
         private int _speedModificator = 0;
         private float _currentSpeed = 0f;
@@ -38,6 +39,18 @@ namespace NickoJ.DinoRunner.Core.Model
                 _speedValid = false;
             }
         }
+
+        public bool CanStop
+        {
+            get => _canStop;
+            set
+            {
+                if (_canStop == value) return;
+
+                _canStop = value;
+                _speedValid = false;
+            }
+        }
         
         public float CurrentSpeed => _currentSpeed;
 
@@ -46,6 +59,8 @@ namespace NickoJ.DinoRunner.Core.Model
         public float YSpeed { get; internal set; }
 
         public bool IsFlying => _flyRequestCount > 0;
+
+        public bool IsDead { get; internal set; }
 
         public event Action<float> OnCurrentSpeedChanged;
         public event Action<bool> OnFly;
@@ -92,7 +107,7 @@ namespace NickoJ.DinoRunner.Core.Model
 
              float speed = BaseSpeed + BaseSpeed * (SpeedModificator / 100f);
 
-             _currentSpeed = Math.Max(speed, _minSpeed);
+             _currentSpeed = Math.Max(speed, _canStop ? 0f : _minSpeed);
                 
             _speedValid = true;
             OnCurrentSpeedChanged?.Invoke(_currentSpeed);            
