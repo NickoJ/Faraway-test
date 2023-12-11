@@ -3,6 +3,9 @@ using NickoJ.DinoRunner.Core.Model;
 
 namespace NickoJ.DinoRunner.Core.GameSystems.Items
 {
+    /// <summary>
+    /// Remove bonus items if they are out of game field.
+    /// </summary>
     internal sealed class BonusItemRemoveSystem : GameSystem, IUpdateGameSystem
     {
         private readonly GameState _state;

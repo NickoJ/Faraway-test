@@ -4,6 +4,9 @@ using NickoJ.DinoRunner.Core.Model;
 
 namespace NickoJ.DinoRunner.Core.GameSystems.PlayerMovement
 {
+    /// <summary>
+    /// Calculates player speed depends on the duration of the run.
+    /// </summary>
     internal sealed class RunSystem : GameSystem, IInitGameSystem, IUpdateGameSystem, IFinishGameSystem
     {
         private readonly IGameState _gameState;

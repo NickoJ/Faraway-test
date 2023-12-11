@@ -5,6 +5,9 @@ using NickoJ.DinoRunner.Core.Model.Bonuses;
 
 namespace NickoJ.DinoRunner.Core.GameSystems.Bonuses
 {
+    /// <summary>
+    /// Activates and deactivates bonuses.
+    /// </summary>
     internal sealed class BonusSystem : GameSystem, IUpdateGameSystem, IFinishGameSystem, IBonusSystem
     {
         private readonly IGameState _state;

@@ -3,6 +3,9 @@ using NickoJ.DinoRunner.Core.Model;
 
 namespace NickoJ.DinoRunner.Core.GameSystems.PlayerMovement
 {
+    /// <summary>
+    /// Validates player speed if it's invalidated.
+    /// </summary>
     internal sealed class ValidateSpeedSystem : GameSystem, IInitGameSystem, IUpdateGameSystem, IFinishGameSystem
     {
         private readonly IGameState _gameState;

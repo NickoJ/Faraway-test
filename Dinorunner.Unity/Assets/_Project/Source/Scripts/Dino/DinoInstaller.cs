@@ -5,6 +5,9 @@ using UnityEngine;
 
 namespace NickoJ.DinoRunner.Scripts.Dino
 {
+    /// <summary>
+    /// Binds DinoController and DinoView
+    /// </summary>
     public sealed class DinoInstaller : Installer
     {
         [SerializeField] private DinoView dinoView;

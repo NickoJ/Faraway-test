@@ -3,6 +3,9 @@ using NickoJ.DinoRunner.Core.Model;
 
 namespace NickoJ.DinoRunner.Core.GameSystems.Items
 {
+    /// <summary>
+    /// Moves all active obstacles.
+    /// </summary>
     internal sealed class ObstacleItemsMoveSystem : GameSystem, IUpdateGameSystem
     {
         private readonly GameState _state;

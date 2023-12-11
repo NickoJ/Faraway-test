@@ -5,6 +5,9 @@ using UnityEngine;
 
 namespace NickoJ.DinoRunner.Scripts.Bonuses
 {
+    /// <summary>
+    /// Binds BonusesController with model and views.
+    /// </summary>
     public sealed class BonusesInstaller : Installer
     {
         [SerializeField] private BonusItemView[] bonuses;

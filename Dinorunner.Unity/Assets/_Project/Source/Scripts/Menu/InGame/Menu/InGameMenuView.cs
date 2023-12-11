@@ -4,6 +4,9 @@ using UnityEngine.EventSystems;
 
 namespace NickoJ.DinoRunner.Scripts.Menu.InGame.Menu
 {
+    /// <summary>
+    /// Detects jump requests from the player.
+    /// </summary>
     [RequireComponent(typeof(Canvas))]
     public sealed class InGameMenuView : MonoBehaviour, IInGameMenuView
     {

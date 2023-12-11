@@ -21,6 +21,12 @@ namespace NickoJ.DinoRunner.Core.Model.Bonuses
             _config = config;
         }
 
+        /// <summary>
+        /// Returns bonus with specified kind.
+        /// </summary>
+        /// <param name="bonusKind"></param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public Bonus Build(BonusKind bonusKind)
         {
             switch (bonusKind)
@@ -36,6 +42,11 @@ namespace NickoJ.DinoRunner.Core.Model.Bonuses
             }
         }
 
+        /// <summary>
+        /// Put bonus back to pool after usage.
+        /// </summary>
+        /// <param name="bonus"></param>
+        /// <exception cref="ArgumentNullException"></exception>
         public void Release(Bonus bonus)
         {
             if (bonus == null) throw new ArgumentNullException(nameof(bonus));

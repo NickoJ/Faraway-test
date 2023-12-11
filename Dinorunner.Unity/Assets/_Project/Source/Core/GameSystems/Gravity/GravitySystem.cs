@@ -4,6 +4,9 @@ using NickoJ.DinoRunner.Core.Model;
 
 namespace NickoJ.DinoRunner.Core.GameSystems.Gravity
 {
+    /// <summary>
+    /// Makes player go down if it's on air.
+    /// </summary>
     internal sealed class GravitySystem : GameSystem, IUpdateGameSystem
     {
         private readonly Player _player;

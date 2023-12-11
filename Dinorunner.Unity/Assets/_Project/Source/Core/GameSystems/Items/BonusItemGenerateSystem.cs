@@ -6,6 +6,9 @@ using NickoJ.DinoRunner.Core.Model.Bonuses;
 
 namespace NickoJ.DinoRunner.Core.GameSystems.Items
 {
+    /// <summary>
+    /// Generates bonus items during the run.
+    /// </summary>
     internal sealed class BonusItemGenerateSystem : GameSystem, IInitGameSystem, IUpdateGameSystem
     {
         private readonly GameState _state;

@@ -4,6 +4,9 @@ using NickoJ.DinoRunner.Core.Model;
 
 namespace NickoJ.DinoRunner.Core.GameSystems.Gravity
 {
+    /// <summary>
+    /// Makes player fly when flying is enabled.
+    /// </summary>
     internal sealed class FlySystem : GameSystem, IInitGameSystem, IUpdateGameSystem
     {
         private readonly Player _player;

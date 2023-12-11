@@ -4,6 +4,9 @@ using UnityEngine;
 
 namespace NickoJ.DinoRunner.Engine.Configs
 {
+    /// <summary>
+    /// All configs using in the game.
+    /// </summary>
     [CreateAssetMenu]
     public sealed class GameConfig : ScriptableObject, IGameConfig
     {

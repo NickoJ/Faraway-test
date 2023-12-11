@@ -3,6 +3,9 @@ using NickoJ.DinoRunner.Core.Config;
 
 namespace NickoJ.DinoRunner.Core.Model
 {
+    /// <summary>
+    /// Player
+    /// </summary>
     public sealed class Player
     {
         private readonly IPlayerConfig _config;
@@ -16,6 +19,9 @@ namespace NickoJ.DinoRunner.Core.Model
 
         private int _flyRequestCount = 0;
 
+        /// <summary>
+        /// Player's speed without modificators.
+        /// </summary>
         public float BaseSpeed
         {
             get => _baseSpeed;
@@ -28,6 +34,9 @@ namespace NickoJ.DinoRunner.Core.Model
             }
         }
 
+        /// <summary>
+        /// Speed modificators that increase/decrease player's speed.
+        /// </summary>
         public int SpeedModificator
         {
             get => _speedModificator;
@@ -40,6 +49,9 @@ namespace NickoJ.DinoRunner.Core.Model
             }
         }
 
+        /// <summary>
+        /// Checks if player can stop or not.
+        /// </summary>
         public bool CanStop
         {
             get => _canStop;
@@ -52,14 +64,29 @@ namespace NickoJ.DinoRunner.Core.Model
             }
         }
         
+        /// <summary>
+        /// Current player speed.
+        /// </summary>
         public float CurrentSpeed => _currentSpeed;
 
+        /// <summary>
+        /// Player Y position.
+        /// </summary>
         public float Y { get; internal set; }
 
+        /// <summary>
+        /// Player Y velocity.
+        /// </summary>
         public float YSpeed { get; internal set; }
 
+        /// <summary>
+        /// If player is flying or not.
+        /// </summary>
         public bool IsFlying => _flyRequestCount > 0;
 
+        /// <summary>
+        /// If player is dead or not.
+        /// </summary>
         public bool IsDead { get; internal set; }
 
         public event Action<float> OnCurrentSpeedChanged;
@@ -71,6 +98,9 @@ namespace NickoJ.DinoRunner.Core.Model
             _minSpeed = minSpeed;
         }
         
+        /// <summary>
+        /// Try to jump
+        /// </summary>
         public void Jump()
         {
             if (Y == 0)
@@ -79,6 +109,9 @@ namespace NickoJ.DinoRunner.Core.Model
             }
         }
 
+        /// <summary>
+        /// Try to fly.
+        /// </summary>
         internal void RequestFly()
         {
             _flyRequestCount++;
@@ -89,6 +122,9 @@ namespace NickoJ.DinoRunner.Core.Model
             }
         }
 
+        /// <summary>
+        /// Try to stop fly 
+        /// </summary>
         internal void RequestStopFly()
         {
             int count = _flyRequestCount - 1;
@@ -101,6 +137,9 @@ namespace NickoJ.DinoRunner.Core.Model
             }
         }
 
+        /// <summary>
+        /// Validate player if it's invalidated.
+        /// </summary>
         internal void Validate()
         {
             if (_speedValid) return;

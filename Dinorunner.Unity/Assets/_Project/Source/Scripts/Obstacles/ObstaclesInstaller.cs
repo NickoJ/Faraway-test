@@ -5,6 +5,9 @@ using UnityEngine;
 
 namespace NickoJ.DinoRunner.Scripts.Obstacles
 {
+    /// <summary>
+    /// Creates ObstaclesController using obstacle storage and model.
+    /// </summary>
     public sealed class ObstaclesInstaller : Installer
     {
         [SerializeField] private ObstacleItemView obstacle;

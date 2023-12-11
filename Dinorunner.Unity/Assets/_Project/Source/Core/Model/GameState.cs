@@ -1,8 +1,10 @@
 ﻿using System;
-using NickoJ.DinoRunner.Core.GameSystems.Score;
 
 namespace NickoJ.DinoRunner.Core.Model
 {
+    /// <summary>
+    /// Contains all game information.
+    /// </summary>
     internal sealed class GameState : IGameState
     {
         private bool _started;

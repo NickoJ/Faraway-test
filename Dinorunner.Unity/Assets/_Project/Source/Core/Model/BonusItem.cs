@@ -2,6 +2,9 @@
 
 namespace NickoJ.DinoRunner.Core.Model
 {
+    /// <summary>
+    /// Bonus item
+    /// </summary>
     public struct BonusItem
     {
         public readonly uint ID;

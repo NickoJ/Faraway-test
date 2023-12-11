@@ -2,6 +2,9 @@ using UnityEngine;
 
 namespace NickoJ.DinoRunner.Scripts.Background
 {
+    /// <summary>
+    /// BackgroundView that's responsible for all background layers.
+    /// </summary>
     public sealed class BackgroundView : MonoBehaviour
     {
         private const float MaxAwakeOffsetDistance = 300f; 

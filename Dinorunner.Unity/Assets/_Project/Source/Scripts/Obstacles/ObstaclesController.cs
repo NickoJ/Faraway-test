@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Threading;
 using Cysharp.Threading.Tasks;
 using Cysharp.Threading.Tasks.Linq;
 using NickoJ.DinoRunner.Core.Model;
@@ -8,6 +7,9 @@ using UnityEngine;
 
 namespace NickoJ.DinoRunner.Scripts.Obstacles
 {
+    /// <summary>
+    /// Binds obstacle item views with model.
+    /// </summary>
     public sealed class ObstaclesController
     {
         private readonly IGameState _state;

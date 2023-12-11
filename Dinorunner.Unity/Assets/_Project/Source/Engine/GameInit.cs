@@ -11,15 +11,19 @@ using UnityEngine.SceneManagement;
 
 namespace NickoJ.DinoRunner.Engine
 {
+    /// <summary>
+    /// Starts the game and initialized required data.
+    /// </summary>
     internal static class GameInit
     {
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
         private static async void Initialize()
         {
+            // Creates game loop and connects it to PlayerLoop via UniTask because it's easier.
             var gameLoop = new GameLoop();
             PlayerLoopHelper.AddAction(PlayerLoopTiming.Update, gameLoop );
 
-            UnityLogger logger = new UnityLogger();
+            var logger = new UnityLogger();
             GameConfig gameConfig = await LoadGameConfig();
 
             var game = new Game(gameLoop, logger, gameConfig);
@@ -31,6 +35,10 @@ namespace NickoJ.DinoRunner.Engine
             Launch(serviceLocator);
         }
 
+        /// <summary>
+        /// Loads game config from Config file. Check addressable groups.
+        /// </summary>
+        /// <returns></returns>
         private static async UniTask<GameConfig> LoadGameConfig()
         {
             AsyncOperationHandle<GameConfig> handle = Addressables.LoadAssetAsync<GameConfig>("Config_Game");
@@ -39,16 +47,23 @@ namespace NickoJ.DinoRunner.Engine
             return handle.Result;
         }
 
-        private static ServiceLocator InitializeServiceLocator(Game game)
+        /// <summary>
+        /// Initializes service locator.
+        /// </summary>
+        /// <param name="game"></param>
+        /// <returns></returns>
+        private static ServiceLocator InitializeServiceLocator(IGame game)
         {
             var serviceLocator = new ServiceLocator();
 
-            serviceLocator.Register<IGame>(game);
-            serviceLocator.Register(game.GetSystem<IBonusSystem>());
-
+            serviceLocator.Register(game);
+            
             return serviceLocator;
         }
 
+        /// <summary>
+        /// Loads GameScene from addressables.
+        /// </summary>
         private static async Task LoadGameScene()
         {
             // If we are not in the main scene, we don't need to load the game scene.
@@ -64,6 +79,10 @@ namespace NickoJ.DinoRunner.Engine
             await UniTask.WaitUntil(() => handle.IsDone);
         }
 
+        /// <summary>
+        /// Initialize all installers on the scene.
+        /// </summary>
+        /// <param name="serviceLocator"></param>
         private static void Launch(ServiceLocator serviceLocator)
         {
             Installer[] installers = Resources.FindObjectsOfTypeAll<Installer>();

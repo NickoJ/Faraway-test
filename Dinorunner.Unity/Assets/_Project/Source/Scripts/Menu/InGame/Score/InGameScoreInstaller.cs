@@ -5,6 +5,9 @@ using UnityEngine;
 
 namespace NickoJ.DinoRunner.Scripts.Menu.InGame.Score
 {
+    /// <summary>
+    /// Binds InGameScoreController with InGameScoreView.
+    /// </summary>
     public sealed class InGameScoreInstaller : Installer
     {
         [SerializeField] private InGameScoreView view;

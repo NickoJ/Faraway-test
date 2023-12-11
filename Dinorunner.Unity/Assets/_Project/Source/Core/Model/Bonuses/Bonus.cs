@@ -1,6 +1,7 @@
 ﻿namespace NickoJ.DinoRunner.Core.Model.Bonuses
 {
-    public abstract class Bonus : IBonus
+    //Base class of the bonus (command pattern).
+    public abstract class Bonus
     {
         private float _timeLeft;
 

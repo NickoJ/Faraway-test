@@ -2,6 +2,9 @@
 
 namespace NickoJ.DinoRunner.Scripts.Bonuses
 {
+    /// <summary>
+    /// BonusViewsStorages' API.
+    /// </summary>
     public interface IBonusViewsStorage
     {
         IBonusItemView GetView(BonusKind kind);

@@ -4,6 +4,9 @@ using UnityEngine.UI;
 
 namespace NickoJ.DinoRunner.Scripts.Menu.Start.Menu
 {
+    /// <summary>
+    /// Notifies about starting game request.
+    /// </summary>
     [RequireComponent(typeof(Canvas))]
     public sealed class StartMenuView : MonoBehaviour, IStartMenuView
     {

@@ -3,6 +3,9 @@ using NickoJ.DinoRunner.Core.Model;
 
 namespace NickoJ.DinoRunner.Core.GameSystems.Items
 {
+    /// <summary>
+    /// Removes obstacles if they are out of the game field.
+    /// </summary>
     internal sealed class ObstacleItemRemoveSystem: GameSystem, IUpdateGameSystem
     {
         private readonly GameState _state;

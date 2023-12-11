@@ -2,6 +2,9 @@
 
 namespace NickoJ.DinoRunner.Scripts.Menu.Start.Menu
 {
+    /// <summary>
+    /// Binds IStartMenuView with model.
+    /// </summary>
     public sealed class StartMenuController
     {
         private readonly IGame _game;

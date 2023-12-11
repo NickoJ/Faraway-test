@@ -2,6 +2,9 @@ using UnityEngine;
 
 namespace NickoJ.DinoRunner.Scripts.Dino
 {
+    /// <summary>
+    /// Change shadow sprite's scale depending on distance to target.
+    /// </summary>
     public sealed class Shadow : MonoBehaviour
     {
         [SerializeField] private Transform target;

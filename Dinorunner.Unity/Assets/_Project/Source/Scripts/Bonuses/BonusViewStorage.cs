@@ -5,6 +5,9 @@ using UnityEngine.Pool;
 
 namespace NickoJ.DinoRunner.Scripts.Bonuses
 {
+    /// <summary>
+    /// Storage of object pool for bonus item views.
+    /// </summary>
     public sealed class BonusViewStorage : IBonusViewsStorage
     {
         private readonly Transform _root;
@@ -26,11 +29,20 @@ namespace NickoJ.DinoRunner.Scripts.Bonuses
             }
         }
 
+        /// <summary>
+        /// Return bonus item view with specified BonusKind.
+        /// </summary>
+        /// <param name="itemKind">Kind of the required view.</param>
+        /// <returns></returns>
         public IBonusItemView GetView(BonusKind itemKind)
         {
             return _pools[itemKind].Get();
         }
 
+        /// <summary>
+        /// Releases the view.
+        /// </summary>
+        /// <param name="view">View that has to be released.</param>
         public void ReleaseView(IBonusItemView view)
         {
             if (view is BonusItemView castedView)

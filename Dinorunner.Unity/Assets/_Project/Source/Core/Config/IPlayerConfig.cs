@@ -1,5 +1,8 @@
 ﻿namespace NickoJ.DinoRunner.Core.Config
 {
+    /// <summary>
+    /// Parameters of player that have to implemented on engine side.
+    /// </summary>
     public interface IPlayerConfig
     {
         float X { get; }

@@ -4,6 +4,9 @@ using UnityEngine;
 
 namespace NickoJ.DinoRunner.Scripts.Menu.InGame.Menu
 {
+    /// <summary>
+    /// Binds InGameMenuView and InGameMenuController.
+    /// </summary>
     public sealed class InGameMenuInstaller : Installer
     {
         [SerializeField] private InGameMenuView view;

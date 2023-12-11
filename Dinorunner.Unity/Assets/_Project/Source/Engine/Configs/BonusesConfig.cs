@@ -4,6 +4,9 @@ using UnityEngine;
 
 namespace NickoJ.DinoRunner.Engine.Configs
 {
+    /// <summary>
+    /// Parameters for bonuses.
+    /// </summary>
     [Serializable]
     public sealed class BonusesConfig : IBonusesConfig
     {

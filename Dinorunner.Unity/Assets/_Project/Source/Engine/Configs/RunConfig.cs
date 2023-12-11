@@ -1,10 +1,12 @@
 ﻿using System;
 using NickoJ.DinoRunner.Core.Config;
-using NickoJ.DinoRunner.Core.GameSystems.PlayerMovement;
 using UnityEngine;
 
 namespace NickoJ.DinoRunner.Engine.Configs
 {
+    /// <summary>
+    /// Parameters of running.
+    /// </summary>
     [Serializable]
     internal sealed class RunConfig : IRunConfig
     {

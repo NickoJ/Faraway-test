@@ -1,9 +1,11 @@
 using System;
-using NickoJ.DinoRunner.Scripts.Dino;
 using UnityEngine;
 
-namespace NickoJ.DinoRunner
+namespace NickoJ.DinoRunner.Scripts.Dino
 {
+    /// <summary>
+    /// Dino view that updates visual of the character.
+    /// </summary>
     public sealed class DinoView : MonoBehaviour, IDinoView
     {
         [SerializeField] private Transform root;

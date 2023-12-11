@@ -3,6 +3,9 @@ using UnityEngine;
 
 namespace NickoJ.DinoRunner.Scripts.Menu.InGame.Score
 {
+    /// <summary>
+    /// Show InGame score information.
+    /// </summary>
     public sealed class InGameScoreView : MonoBehaviour, IInGameScoreView
     {
         [SerializeField] private TextMeshProUGUI scoreText;

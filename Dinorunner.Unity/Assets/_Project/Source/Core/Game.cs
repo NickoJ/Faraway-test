@@ -11,13 +11,16 @@ using NickoJ.DinoRunner.Core.Model.Bonuses;
 
 namespace NickoJ.DinoRunner.Core
 {
+    /// <summary>
+    /// Core of the game.
+    /// </summary>
     public sealed class Game : IGame, IDisposable
     {
         private readonly IGameLoop _gameLoop;
 
         private readonly GameSystem[] _gameSystems;
 
-        private GameState _state;
+        private readonly GameState _state;
 
         public IGameState State => _state;
 
@@ -56,24 +59,14 @@ namespace NickoJ.DinoRunner.Core
             _gameLoop.OnTick += Tick;
         }
 
+        /// <summary>
+        /// Allows start the run outside the core assembly.
+        /// </summary>
         public void Start()
         {
             if (_state.Started) return;
 
             _state.Started = true;
-        }
-
-        public T GetSystem<T>() where T : class, IGameSystem
-        {
-            foreach (GameSystem system in _gameSystems)
-            {
-                if (system is T casted)
-                {
-                    return casted;
-                }
-            }
-
-            return null;
         }
 
         private void Tick(float dt)

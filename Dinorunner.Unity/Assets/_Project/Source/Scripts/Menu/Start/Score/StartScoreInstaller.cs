@@ -5,6 +5,9 @@ using UnityEngine;
 
 namespace NickoJ.DinoRunner.Scripts.Menu.Start.Score
 {
+    /// <summary>
+    /// Creates StartScoreController using StartScoreView and required model.
+    /// </summary>
     public sealed class StartScoreInstaller : Installer
     {
         [SerializeField] private StartScoreView view;

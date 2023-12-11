@@ -2,6 +2,9 @@
 
 namespace NickoJ.DinoRunner.Scripts.Background
 {
+    /// <summary>
+    /// Controller, responding for parallax of the background.
+    /// </summary>
     public sealed class BackgroundController
     {
         private readonly Player _player;
@@ -17,6 +20,11 @@ namespace NickoJ.DinoRunner.Scripts.Background
             CurrentSpeedChangedHandler(player.CurrentSpeed);
         }
 
+        /// <summary>
+        /// Handles the OnCurrentSpeedChanged player's event to update the background
+        /// view speed when the player's speed changes.
+        /// </summary>
+        /// <param name="speed"></param>
         private void CurrentSpeedChangedHandler(float speed)
         {
             _view.MoveSpeed = speed;

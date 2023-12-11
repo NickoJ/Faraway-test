@@ -5,6 +5,9 @@ using NickoJ.DinoRunner.Core.Model;
 
 namespace NickoJ.DinoRunner.Core.GameSystems.Items
 {
+    /// <summary>
+    /// Detects collision of the player and bonuses and sends it for activation.
+    /// </summary>
     internal sealed class BonusItemCollisionSystem : GameSystem, IUpdateGameSystem
     {
         private readonly GameState _state;

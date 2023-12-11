@@ -2,6 +2,9 @@
 
 namespace NickoJ.DinoRunner.Scripts.Dino
 {
+    /// <summary>
+    /// Wrapper for dino animator.
+    /// </summary>
     public sealed class DinoAnimatorWrapper : MonoBehaviour
     {
         enum AnimatorState
@@ -31,6 +34,12 @@ namespace NickoJ.DinoRunner.Scripts.Dino
             SetIdle();
         }
 
+        /// <summary>
+        /// Updates animation depending on player's parameters.
+        /// </summary>
+        /// <param name="speed">Character speed</param>
+        /// <param name="y">Character y coordinate</param>
+        /// <param name="flying">Whether character flying or not.</param>
         public void UpdateAnimation(float speed, float y, bool flying)
         {
             if (flying)

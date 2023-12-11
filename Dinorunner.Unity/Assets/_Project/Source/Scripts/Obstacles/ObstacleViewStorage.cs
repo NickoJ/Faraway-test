@@ -3,6 +3,9 @@ using UnityEngine.Pool;
 
 namespace NickoJ.DinoRunner.Scripts.Obstacles
 {
+    /// <summary>
+    /// Storage for obstacle views. Using object pool inside.
+    /// </summary>
     public sealed class ObstacleViewStorage : IObstacleViewsStorage
     {
         private readonly Transform _root;

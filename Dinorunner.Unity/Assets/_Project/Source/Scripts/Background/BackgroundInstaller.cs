@@ -5,6 +5,9 @@ using UnityEngine;
 
 namespace NickoJ.DinoRunner.Scripts.Background
 {
+    /// <summary>
+    /// Binds BackgroundController and BackgroundView
+    /// </summary>
     public class BackgroundInstaller : Installer
     {
         [SerializeField] private BackgroundView view;

@@ -4,6 +4,9 @@ using UnityEngine;
 
 namespace NickoJ.DinoRunner.Scripts.Menu.Start.Menu
 {
+    /// <summary>
+    /// Initializes StartMenuController with StartMenuView and required model.
+    /// </summary>
     public sealed class StartMenuInstaller : Installer
     {
         [SerializeField] private StartMenuView view;

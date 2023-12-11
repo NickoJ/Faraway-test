@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Threading;
 using Cysharp.Threading.Tasks;
 using Cysharp.Threading.Tasks.Linq;
 using NickoJ.DinoRunner.Core.Model;
@@ -8,6 +7,9 @@ using UnityEngine;
 
 namespace NickoJ.DinoRunner.Scripts.Bonuses
 {
+    /// <summary>
+    /// Responds for appearing/hiding/moving of bonuses in the visual part of the game.
+    /// </summary>
     public sealed class BonusesController
     {
         private readonly IGameState _state;

@@ -1,5 +1,8 @@
 ﻿namespace NickoJ.DinoRunner.Core.Model.Bonuses
 {
+    /// <summary>
+    /// Acceleration and deacceleration bonuses.
+    /// </summary>
     public sealed class ChangeSpeedBonus : Bonus
     {
         private Player _player;

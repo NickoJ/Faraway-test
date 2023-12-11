@@ -5,6 +5,9 @@ using NickoJ.DinoRunner.Core.Model;
 
 namespace NickoJ.DinoRunner.Scripts.Menu.InGame.Score
 {
+    /// <summary>
+    /// Connects InGameScore view with model.
+    /// </summary>
     public sealed class InGameScoreController
     {
         private readonly IInGameScoreView _view;

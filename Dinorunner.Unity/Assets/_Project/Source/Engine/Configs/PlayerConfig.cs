@@ -4,6 +4,9 @@ using UnityEngine;
 
 namespace NickoJ.DinoRunner.Engine.Configs
 {
+    /// <summary>
+    /// Parameters of the player.
+    /// </summary>
     [Serializable]
     internal sealed class PlayerConfig : IPlayerConfig
     {

@@ -1,8 +1,10 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace NickoJ.DinoRunner.Scripts.Obstacles
 {
+    /// <summary>
+    /// Obstacle view that shows/hides itself and moves along x axis.
+    /// </summary>
     public sealed class ObstacleItemView : MonoBehaviour, IObstacleItemView
     {
         public uint Id { get; set; }

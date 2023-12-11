@@ -1,8 +1,12 @@
 ﻿using System;
 using NickoJ.DinoRunner.Core.GameSystems.Score;
+using NickoJ.DinoRunner.Core.Model;
 
 namespace NickoJ.DinoRunner.Scripts.Menu.Start.Score
 {
+    /// <summary>
+    /// Binds IStartScoreView with model.
+    /// </summary>
     public sealed class StartScoreController
     {
         private readonly IStartScoreView _view;

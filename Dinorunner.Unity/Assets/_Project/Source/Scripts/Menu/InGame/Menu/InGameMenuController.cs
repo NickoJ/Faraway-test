@@ -2,6 +2,9 @@
 
 namespace NickoJ.DinoRunner.Scripts.Menu.InGame.Menu
 {
+    /// <summary>
+    /// Connects in game UI with model.
+    /// </summary>
     public sealed class InGameMenuController
     {
         private readonly IGame _game;

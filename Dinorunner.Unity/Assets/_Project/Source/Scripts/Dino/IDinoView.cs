@@ -2,6 +2,9 @@
 
 namespace NickoJ.DinoRunner.Scripts.Dino
 {
+    /// <summary>
+    /// DinoViews' API.
+    /// </summary>
     public interface IDinoView
     {
         event Action OnUpdate;

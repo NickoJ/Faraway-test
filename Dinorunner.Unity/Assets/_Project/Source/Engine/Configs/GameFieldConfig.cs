@@ -4,6 +4,9 @@ using UnityEngine;
 
 namespace NickoJ.DinoRunner.Engine.Configs
 {
+    /// <summary>
+    /// Parameters of game field.
+    /// </summary>
     [Serializable]
     internal sealed class GameFieldConfig : IGameFieldConfig
     {

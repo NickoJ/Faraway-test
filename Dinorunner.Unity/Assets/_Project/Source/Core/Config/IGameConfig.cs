@@ -1,5 +1,8 @@
 ﻿namespace NickoJ.DinoRunner.Core.Config
 {
+    /// <summary>
+    /// Container for all configs that has to be implemented on the engine side.
+    /// </summary>
     public interface IGameConfig
     {
         IBonusesConfig Bonuses { get; }

@@ -4,6 +4,9 @@ using NickoJ.DinoRunner.Core.Model;
 
 namespace NickoJ.DinoRunner.Core.GameSystems.Items
 {
+    /// <summary>
+    /// Check collision of the player with obstacles.
+    /// </summary>
     internal sealed class ObstacleItemCollisionSystem : GameSystem, IUpdateGameSystem
     {
         private readonly GameState _state;

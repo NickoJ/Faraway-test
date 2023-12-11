@@ -1,11 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
 using NickoJ.DinoRunner.Core.Config;
 using NickoJ.DinoRunner.Core.Model;
-using NickoJ.DinoRunner.Core.Model.Bonuses;
 
 namespace NickoJ.DinoRunner.Core.GameSystems.Items
 {
+    /// <summary>
+    /// Generates obstacles during the run.
+    /// </summary>
     internal sealed class ObstacleItemGenerateSystem : GameSystem, IInitGameSystem, IUpdateGameSystem
     {
         private readonly GameState _state;

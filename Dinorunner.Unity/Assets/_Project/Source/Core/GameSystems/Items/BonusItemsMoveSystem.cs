@@ -3,6 +3,9 @@ using NickoJ.DinoRunner.Core.Model;
 
 namespace NickoJ.DinoRunner.Core.GameSystems.Items
 {
+    /// <summary>
+    /// Moves all active bonus items during the run.
+    /// </summary>
     internal sealed class BonusItemsMoveSystem : GameSystem, IUpdateGameSystem
     {
         private readonly GameState _state;

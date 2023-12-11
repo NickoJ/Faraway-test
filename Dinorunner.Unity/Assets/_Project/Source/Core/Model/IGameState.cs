@@ -1,8 +1,10 @@
 ﻿using System;
-using NickoJ.DinoRunner.Core.GameSystems.Score;
 
 namespace NickoJ.DinoRunner.Core.Model
 {
+    /// <summary>
+    /// Interface of game state for external usage.
+    /// </summary>
     public interface IGameState
     {
         public bool Started { get; }

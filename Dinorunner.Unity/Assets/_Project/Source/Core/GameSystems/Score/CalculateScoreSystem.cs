@@ -3,6 +3,9 @@ using NickoJ.DinoRunner.Core.Model;
 
 namespace NickoJ.DinoRunner.Core.GameSystems.Score
 {
+    /// <summary>
+    /// System that calculates score during the run.
+    /// </summary>
     internal sealed class CalculateScoreSystem : GameSystem, IInitGameSystem, IUpdateGameSystem, IFinishGameSystem
     {
         private readonly IGameState _state;

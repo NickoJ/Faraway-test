@@ -1,5 +1,8 @@
 ﻿namespace NickoJ.DinoRunner.Core.GameSystems
 {
+    /// <summary>
+    /// Base class of the game system.
+    /// </summary>
     internal abstract class GameSystem : IGameSystem
     {
         private readonly ILogger _logger;

@@ -4,6 +4,9 @@ using UnityEngine;
 
 namespace NickoJ.DinoRunner.Engine
 {
+    /// <summary>
+    /// GameLoop that's can be connected to PlayerLoop using UniTask.
+    /// </summary>
     internal sealed class GameLoop : IPlayerLoopItem, IGameLoop
     {
         public event IGameLoop.TickDelegate OnTick; 

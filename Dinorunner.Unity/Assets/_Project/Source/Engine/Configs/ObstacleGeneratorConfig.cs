@@ -4,6 +4,9 @@ using UnityEngine;
 
 namespace NickoJ.DinoRunner.Engine.Configs
 {
+    /// <summary>
+    /// Parameters of obstacle generator.
+    /// </summary>
     [Serializable]
     internal sealed class ObstacleGeneratorConfig : IObstacleGeneratorConfig
     {

@@ -1,5 +1,8 @@
 ﻿namespace NickoJ.DinoRunner.Core.Model.Bonuses
 {
+    /// <summary>
+    /// Fly bonus.
+    /// </summary>
     public sealed class FlyBonus : Bonus
     {
         private Player _player;

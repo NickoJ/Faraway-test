@@ -3,6 +3,9 @@ using NickoJ.DinoRunner.Core.Model;
 
 namespace NickoJ.DinoRunner.Scripts.Dino
 {
+    /// <summary>
+    /// Setup dino view according to model data.
+    /// </summary>
     public sealed class DinoController
     {
         private readonly IDinoView _dinoView;
