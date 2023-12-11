@@ -10,12 +10,12 @@ namespace NickoJ.DinoRunner.Scripts.Background
 
         public float MoveSpeed { get; set; } = 0f;
 
-        private void Awake()
+        private void Start()
         {
             float moveDistance = Random.Range(0, MaxAwakeOffsetDistance);
             MoveLayers(moveDistance);
         }
-
+        
         private void LateUpdate()
         {
             float moveDistance = MoveSpeed * Time.deltaTime;
