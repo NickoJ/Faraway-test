@@ -3,7 +3,7 @@ using NickoJ.DinoRunner.Core.Model.Bonuses;
 
 namespace NickoJ.DinoRunner.Core.GameSystems.Bonuses
 {
-    internal sealed class BonusSystem : GameSystem, IUpdateGameSystem
+    internal sealed class BonusSystem : GameSystem, IUpdateGameSystem, IBonusSystem
     {
         private readonly IBonusStorage _bonusStorage;
         private readonly List<Bonus> _bonuses = new ();

@@ -14,12 +14,12 @@ namespace NickoJ.DinoRunner.Core.Model.Bonuses
         
         public override void Apply()
         {
-            throw new NotImplementedException();
+            // throw new NotImplementedException();
         }
 
         public override void Revoke()
         {
-            throw new NotImplementedException();
+            // throw new NotImplementedException();
         }
     }
 }

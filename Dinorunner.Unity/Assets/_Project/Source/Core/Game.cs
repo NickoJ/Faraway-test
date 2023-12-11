@@ -32,17 +32,20 @@ namespace NickoJ.DinoRunner.Core
                 new GameField(gameConfig.GameField)
             );
 
+            var bonusSystem = new BonusSystem(new BonusStorage(_state.Player, gameConfig.Bonuses));
+            
             _gameSystems = new GameSystem[]
             {
-                new BonusSystem(new BonusStorage(_state.Player, gameConfig.Bonuses)),
+                bonusSystem,
                 new GravitySystem(_state.Player, gameConfig.Gravity),
                 new RunSystem(_state, gameConfig.Run),
                 new ValidateSpeedSystem(_state),
                 new BonusItemGenerateSystem(_state, gameConfig.BonusGeneratorConfig, logger),
-                new ObstacleItemGenerateSystem(_state, gameConfig.ObstacleGeneratorConfig, logger),
                 new BonusItemsMoveSystem(_state, logger),
-                new ObstacleItemsMoveSystem(_state, logger),
+                new BonusItemCollisionSystem(_state, bonusSystem, gameConfig.Player, gameConfig.Bonuses, logger ),
                 new BonusItemRemoveSystem(_state, logger),
+                new ObstacleItemGenerateSystem(_state, gameConfig.ObstacleGeneratorConfig, logger),
+                new ObstacleItemsMoveSystem(_state, logger),
                 new ObstacleItemRemoveSystem(_state, logger),
                 new CalculateScoreSystem(_state)
             };

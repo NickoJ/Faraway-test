@@ -18,12 +18,18 @@ MonoBehaviour:
     <DeAccelerationDuration>k__BackingField: 10
     <DeAccelerationSpeed>k__BackingField: 0.5
     <FlyDuration>k__BackingField: 10
+    <MinY>k__BackingField: 0.45
+    <MaxY>k__BackingField: 0.95
+    <Width>k__BackingField: 0.5
   run:
     <MinSpeed>k__BackingField: 1
     <MaxSpeed>k__BackingField: 15
     <AccelerationTime>k__BackingField: 30
   player:
-    <JumpSpeed>k__BackingField: 8
+    <X>k__BackingField: 2
+    <Width>k__BackingField: 0.8
+    <Height>k__BackingField: 0.9
+    <JumpSpeed>k__BackingField: 5
   gravity:
     <Gravity>k__BackingField: -10
   gameField:
