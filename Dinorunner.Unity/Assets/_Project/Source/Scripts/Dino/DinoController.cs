@@ -20,7 +20,7 @@ namespace NickoJ.DinoRunner.Scripts.Dino
 
         private void ViewUpdateHandler()
         {
-            _dinoView.UpdateView(_player.CurrentSpeed, _player.Y);
+            _dinoView.UpdateView(_player.CurrentSpeed, _player.Y, _player.IsFlying);
         }
     }
 }

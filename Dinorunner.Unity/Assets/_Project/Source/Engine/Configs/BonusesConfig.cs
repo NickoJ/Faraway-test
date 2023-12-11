@@ -8,10 +8,10 @@ namespace NickoJ.DinoRunner.Engine.Configs
     public sealed class BonusesConfig : IBonusesConfig
     {
         [field: SerializeField] public float AccelerationDuration { get; private set; } = 10f;
-        [field: SerializeField] public float AccelerationSpeed { get; private set; } = 3f;
+        [field: SerializeField] public int AccelerationModificator { get; private set; } = 100;
 
         [field: SerializeField] public float DeAccelerationDuration { get; private set; } = 10f;
-        [field: SerializeField] public float DeAccelerationSpeed { get; private set; } = 0.5f;
+        [field: SerializeField] public int DeAccelerationModificator { get; private set; } = -50;
 
         [field: SerializeField] public float FlyDuration { get; private set; } = 10f;
 

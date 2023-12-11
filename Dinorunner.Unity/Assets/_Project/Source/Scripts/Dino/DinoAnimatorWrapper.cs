@@ -31,9 +31,13 @@ namespace NickoJ.DinoRunner.Scripts.Dino
             SetIdle();
         }
 
-        public void UpdateAnimation(float speed, float y)
+        public void UpdateAnimation(float speed, float y, bool flying)
         {
-            if (y > 0)
+            if (flying)
+            {
+                SetFly();
+            }
+            else if (y > 0)
             {
                 SetJump();
             }
@@ -51,6 +55,7 @@ namespace NickoJ.DinoRunner.Scripts.Dino
             }
         }
 
+        private void SetFly() => SetTrigger(Fly, AnimatorState.Fly);
         private void SetJump() => SetTrigger(Jump, AnimatorState.Jump);
         private void SetIdle() => SetTrigger(Idle, AnimatorState.Idle);
         private void SetMove() => SetTrigger(Move, AnimatorState.Move);

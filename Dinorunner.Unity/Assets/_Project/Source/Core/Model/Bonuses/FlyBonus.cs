@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace NickoJ.DinoRunner.Core.Model.Bonuses
+﻿namespace NickoJ.DinoRunner.Core.Model.Bonuses
 {
     public sealed class FlyBonus : Bonus
     {
@@ -14,12 +12,12 @@ namespace NickoJ.DinoRunner.Core.Model.Bonuses
         
         public override void Apply()
         {
-            // throw new NotImplementedException();
+            _player.RequestFly();
         }
 
         public override void Revoke()
         {
-            // throw new NotImplementedException();
+            _player.RequestStopFly();
         }
     }
 }

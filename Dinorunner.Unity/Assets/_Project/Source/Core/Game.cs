@@ -27,18 +27,19 @@ namespace NickoJ.DinoRunner.Core
 
             _state = new GameState
             (
-                new Player(gameConfig.Player), 
+                new Player(gameConfig.Player, gameConfig.Run.MinSpeed), 
                 new GameScore(),
                 new GameField(gameConfig.GameField)
             );
 
-            var bonusSystem = new BonusSystem(new BonusStorage(_state.Player, gameConfig.Bonuses));
+            var bonusSystem = new BonusSystem(_state, new BonusStorage(_state.Player, gameConfig.Bonuses));
             
             _gameSystems = new GameSystem[]
             {
                 bonusSystem,
                 new GravitySystem(_state.Player, gameConfig.Gravity),
                 new RunSystem(_state, gameConfig.Run),
+                new FlySystem(_state.Player, gameConfig.Player, logger),
                 new ValidateSpeedSystem(_state),
                 new BonusItemGenerateSystem(_state, gameConfig.BonusGeneratorConfig, logger),
                 new BonusItemsMoveSystem(_state, logger),

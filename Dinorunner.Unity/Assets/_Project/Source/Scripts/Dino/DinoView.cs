@@ -16,17 +16,13 @@ namespace NickoJ.DinoRunner
             OnUpdate?.Invoke();
         }
 
-        public void SetSpeed(float speed)
-        {
-        }
-
-        public void UpdateView(float speed, float y)
+        public void UpdateView(float speed, float y, bool flying)
         {
             Vector3 pos = root.localPosition;
             pos.y = y;
             root.localPosition = pos;
 
-            animator.UpdateAnimation(speed, y);
+            animator.UpdateAnimation(speed, y, flying);
         }
     }
 }

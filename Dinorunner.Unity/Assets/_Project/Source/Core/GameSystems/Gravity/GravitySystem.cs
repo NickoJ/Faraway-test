@@ -17,6 +17,8 @@ namespace NickoJ.DinoRunner.Core.GameSystems.Gravity
 
         void IUpdateGameSystem.Update(float dt)
         {
+            if (_player.IsFlying) return;
+            
             float y = _player.Y;
             float ySpeed = _player.YSpeed;
 

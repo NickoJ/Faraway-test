@@ -7,5 +7,8 @@
         float Height { get; }
 
         float JumpSpeed { get; }
+        float FlyDelay { get; }
+        float FlyUpSpeed { get; }
+        float FlyY { get; }
     }
 }

@@ -6,6 +6,6 @@ namespace NickoJ.DinoRunner.Scripts.Dino
     {
         event Action OnUpdate;
 
-        void UpdateView(float speed, float y);
+        void UpdateView(float speed, float y, bool flying);
     }
 }

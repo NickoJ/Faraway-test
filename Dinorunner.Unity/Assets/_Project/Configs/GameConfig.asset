@@ -14,22 +14,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bonuses:
     <AccelerationDuration>k__BackingField: 10
-    <AccelerationSpeed>k__BackingField: 3
+    <AccelerationModificator>k__BackingField: 10
     <DeAccelerationDuration>k__BackingField: 10
-    <DeAccelerationSpeed>k__BackingField: 0.5
+    <DeAccelerationModificator>k__BackingField: -20
     <FlyDuration>k__BackingField: 10
     <MinY>k__BackingField: 0.45
     <MaxY>k__BackingField: 0.95
     <Width>k__BackingField: 0.5
   run:
     <MinSpeed>k__BackingField: 1
-    <MaxSpeed>k__BackingField: 15
-    <AccelerationTime>k__BackingField: 30
+    <MaxSpeed>k__BackingField: 8
+    <AccelerationTime>k__BackingField: 15
   player:
     <X>k__BackingField: 2
     <Width>k__BackingField: 0.8
     <Height>k__BackingField: 0.9
     <JumpSpeed>k__BackingField: 5
+    <FlyDelay>k__BackingField: 0.4
+    <FlyUpSpeed>k__BackingField: 6
+    <FlyY>k__BackingField: 3
   gravity:
     <Gravity>k__BackingField: -10
   gameField:
@@ -41,9 +44,9 @@ MonoBehaviour:
     <SpawnDistance>k__BackingField: 30
     <SpawnChances>k__BackingField:
     - kind: 0
-      chance: 2
-    - kind: 1
       chance: 4
+    - kind: 1
+      chance: 1
     - kind: 2
       chance: 1
   obstacleGeneratorConfig:

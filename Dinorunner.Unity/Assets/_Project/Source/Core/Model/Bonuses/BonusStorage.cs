@@ -26,8 +26,9 @@ namespace NickoJ.DinoRunner.Core.Model.Bonuses
             switch (bonusKind)
             {
                 case BonusKind.Acceleration:
-                case BonusKind.DeAcceleration:
                     return GetOrCreate<ChangeSpeedBonus>(InitAccelerationBonus);
+                case BonusKind.DeAcceleration:
+                    return GetOrCreate<ChangeSpeedBonus>(InitDeAccelerationBonus);
                 case BonusKind.Fly:
                     return GetOrCreate<FlyBonus>(InitFlyBonus);
                 default:
@@ -45,7 +46,12 @@ namespace NickoJ.DinoRunner.Core.Model.Bonuses
 
         private void InitAccelerationBonus(ChangeSpeedBonus bonus)
         {
-            bonus.Init(_player, _config.AccelerationDuration);
+            bonus.Init(_player, _config.AccelerationModificator, _config.AccelerationDuration);
+        }
+
+        private void InitDeAccelerationBonus(ChangeSpeedBonus bonus)
+        {
+            bonus.Init(_player, _config.DeAccelerationModificator, _config.DeAccelerationDuration);
         }
 
         private void InitFlyBonus(FlyBonus bonus)

@@ -1,16 +1,22 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using NickoJ.DinoRunner.Core.Model;
 using NickoJ.DinoRunner.Core.Model.Bonuses;
 
 namespace NickoJ.DinoRunner.Core.GameSystems.Bonuses
 {
-    internal sealed class BonusSystem : GameSystem, IUpdateGameSystem, IBonusSystem
+    internal sealed class BonusSystem : GameSystem, IUpdateGameSystem, IFinishGameSystem, IBonusSystem
     {
+        private readonly IGameState _state;
         private readonly IBonusStorage _bonusStorage;
         private readonly List<Bonus> _bonuses = new ();
 
-        public BonusSystem(IBonusStorage bonusStorage) : base(false)
+        public BonusSystem(IGameState state, IBonusStorage bonusStorage) : base(false)
         {
-            _bonusStorage = bonusStorage;
+            _state = state ?? throw new ArgumentNullException(nameof(state));
+            _bonusStorage = bonusStorage ?? throw new ArgumentNullException(nameof(bonusStorage));
+
+            _state.OnGameStarted += GameStartedHandler;
         }
         
         public void AddBonus(BonusKind bonusKind)
@@ -52,6 +58,25 @@ namespace NickoJ.DinoRunner.Core.GameSystems.Bonuses
                 {
                     Stop();
                 }
+            }
+        }
+
+        void IFinishGameSystem.Finish()
+        {
+            for (int i = _bonuses.Count - 1; i >= 0; i--)
+            {
+                _bonuses[i].Revoke();
+                _bonusStorage.Release(_bonuses[i]);
+            }
+            
+            _bonuses.Clear();
+        }
+
+        private void GameStartedHandler(bool started)
+        {
+            if (!started)
+            {
+                Stop();
             }
         }
     }
