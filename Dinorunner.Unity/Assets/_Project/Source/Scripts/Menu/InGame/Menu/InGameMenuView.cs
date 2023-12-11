@@ -1,13 +1,13 @@
 ﻿using System;
 using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 namespace NickoJ.DinoRunner.Scripts.Menu.InGame.Menu
 {
     [RequireComponent(typeof(Canvas))]
     public sealed class InGameMenuView : MonoBehaviour, IInGameMenuView
     {
-        [SerializeField] private Button jumpButton; 
+        [SerializeField] private EventTrigger jumpButton; 
         
         private Canvas _canvas;
 
@@ -23,7 +23,12 @@ namespace NickoJ.DinoRunner.Scripts.Menu.InGame.Menu
         {
             _canvas = GetComponent<Canvas>();
 
-            jumpButton.onClick.AddListener(() => OnJump?.Invoke());
+            var entry = new EventTrigger.Entry
+            {
+                eventID = EventTriggerType.PointerDown
+            };
+            entry.callback.AddListener( _ => OnJump?.Invoke() );
+            jumpButton.triggers.Add(entry);
         }
     }
 }
