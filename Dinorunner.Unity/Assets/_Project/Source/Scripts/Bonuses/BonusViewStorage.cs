@@ -26,14 +26,6 @@ namespace NickoJ.DinoRunner.Scripts.Bonuses
             }
         }
 
-        private BonusItemView CreateView(BonusItemView prefab)
-        {
-            BonusItemView view = Object.Instantiate(prefab, _root, true);
-            view.Visible = false;
-
-            return view;
-        }
-
         public IBonusItemView GetView(BonusKind itemKind)
         {
             return _pools[itemKind].Get();
@@ -46,6 +38,14 @@ namespace NickoJ.DinoRunner.Scripts.Bonuses
                 castedView.Visible = false;
                 _pools[castedView.Kind].Release(castedView);
             }
+        }
+
+        private BonusItemView CreateView(BonusItemView prefab)
+        {
+            BonusItemView view = Object.Instantiate(prefab, _root, true);
+            view.Visible = false;
+
+            return view;
         }
 
         private void DestroyView(BonusItemView view)

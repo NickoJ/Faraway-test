@@ -1,6 +1,4 @@
-﻿using NickoJ.DinoRunner.Core.GameSystems.PlayerMovement;
-
-namespace NickoJ.DinoRunner.Core.Config
+﻿namespace NickoJ.DinoRunner.Core.Config
 {
     public interface IGameConfig
     {
@@ -10,5 +8,6 @@ namespace NickoJ.DinoRunner.Core.Config
         IGravityConfig Gravity { get; }
         IGameFieldConfig GameField { get; }
         IBonusGeneratorConfig BonusGeneratorConfig { get; }
+        IObstacleGeneratorConfig ObstacleGeneratorConfig { get; }
     }
 }

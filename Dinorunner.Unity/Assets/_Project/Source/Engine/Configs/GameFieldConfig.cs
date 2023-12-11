@@ -8,5 +8,7 @@ namespace NickoJ.DinoRunner.Engine.Configs
     internal sealed class GameFieldConfig : IGameFieldConfig
     {
         [field: SerializeField] public int MaxBonusItemsCount { get; private set; } = 5;
+
+        [field: SerializeField] public int MaxObstacleItemsCount { get; private set; } = 3;
     }
 }

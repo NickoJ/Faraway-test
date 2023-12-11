@@ -39,8 +39,11 @@ namespace NickoJ.DinoRunner.Core
                 new RunSystem(_state, gameConfig.Run),
                 new ValidateSpeedSystem(_state),
                 new BonusItemGenerateSystem(_state, gameConfig.BonusGeneratorConfig, logger),
+                new ObstacleItemGenerateSystem(_state, gameConfig.ObstacleGeneratorConfig, logger),
                 new BonusItemsMoveSystem(_state, logger),
+                new ObstacleItemsMoveSystem(_state, logger),
                 new BonusItemRemoveSystem(_state, logger),
+                new ObstacleItemRemoveSystem(_state, logger),
                 new CalculateScoreSystem(_state)
             };
             

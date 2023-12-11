@@ -1,16 +1,12 @@
-﻿using NickoJ.DinoRunner.Core.Model.Bonuses;
+﻿using System;
 using UnityEngine;
 
-namespace NickoJ.DinoRunner.Scripts.Bonuses
+namespace NickoJ.DinoRunner.Scripts.Obstacles
 {
-    public sealed class BonusItemView : MonoBehaviour, IBonusItemView
+    public sealed class ObstacleItemView : MonoBehaviour, IObstacleItemView
     {
-        [SerializeField] private BonusKind kind;
-
         public uint Id { get; set; }
         
-        public BonusKind Kind => kind;
-
         public bool Visible
         {
             get => gameObject.activeSelf;
