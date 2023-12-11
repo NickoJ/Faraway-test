@@ -1,6 +1,7 @@
 # Dinorunner
 
 [Link to the build](https://github.com/NickoJ/Faraway-test/tree/e8daecce30a2da6fabbda3d2aee5736e858c127f/Dinorunner.Unity/Build)
+[Itch.io](https://nickoj.itch.io/faraway-test)
 
 All visualization using MVC pattern.
 Game itself isn't binded to Unity as much as possible (even ticks are sent there using PlayerLoop, not MonoBewhaviour update methods).
