@@ -2,7 +2,7 @@ using NickoJ.DinoRunner.Core;
 using NickoJ.DinoRunner.Engine;
 using UnityEngine;
 
-namespace NickoJ.DinoRunner.Scripts.Menu.Start
+namespace NickoJ.DinoRunner.Scripts.Menu.Start.Menu
 {
     public sealed class StartMenuInstaller : Installer
     {

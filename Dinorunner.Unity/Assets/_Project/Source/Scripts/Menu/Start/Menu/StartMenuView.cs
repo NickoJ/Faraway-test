@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace NickoJ.DinoRunner.Scripts.Menu.Start
+namespace NickoJ.DinoRunner.Scripts.Menu.Start.Menu
 {
     [RequireComponent(typeof(Canvas))]
     public sealed class StartMenuView : MonoBehaviour, IStartMenuView

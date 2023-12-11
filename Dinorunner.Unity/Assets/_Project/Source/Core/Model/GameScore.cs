@@ -8,6 +8,8 @@ namespace NickoJ.DinoRunner.Core.GameSystems.Score
         public ulong HighScore { get; private set; }
         public bool Record { get; private set; }
 
+        public event Action OnFinalScoreCalculated; 
+        
         public void OnLevelProgress(ulong score)
         {
             LastScore = score;
@@ -17,6 +19,7 @@ namespace NickoJ.DinoRunner.Core.GameSystems.Score
         {
             Record = LastScore > HighScore;
             HighScore = Math.Max(HighScore, LastScore);
+            OnFinalScoreCalculated?.Invoke();
         }
     }
 }

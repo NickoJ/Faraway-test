@@ -55,5 +55,5 @@ MonoBehaviour:
     <SpawnDistance>k__BackingField: 30
   obstacle:
     <MinY>k__BackingField: 0
-    <MaxY>k__BackingField: 0.5
+    <MaxY>k__BackingField: 0.4
     <Width>k__BackingField: 0.7

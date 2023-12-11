@@ -1,6 +1,6 @@
 ﻿using NickoJ.DinoRunner.Core;
 
-namespace NickoJ.DinoRunner.Scripts.Menu.Start
+namespace NickoJ.DinoRunner.Scripts.Menu.Start.Menu
 {
     public sealed class StartMenuController
     {

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace NickoJ.DinoRunner.Scripts.Menu.Start
+namespace NickoJ.DinoRunner.Scripts.Menu.Start.Menu
 {
     public interface IStartMenuView
     {
